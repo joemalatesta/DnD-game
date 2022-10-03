@@ -1,7 +1,7 @@
 function App() {
   return (
     <div>
-      <h2>Starter code</h2>
+      <h2>DnD Game</h2>
     </div>
   );
 }
