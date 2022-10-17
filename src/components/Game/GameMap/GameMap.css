@@ -1,0 +1,25 @@
+.app {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.map{
+  background-size: contain;
+  display: flex;
+  background-color: black;
+  flex-wrap: wrap;
+  width: 700px;
+  height:700px;
+}
+
+.map > div {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px dotted rgba(18, 201, 159, 0.2);
+  background-color: whitesmoke;
+  width:7px;
+  height: 7px;
+} 
+

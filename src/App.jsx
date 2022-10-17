@@ -1,13 +1,13 @@
 import { Routes, Route } from 'react-router-dom'
-import Landing from './pages/Landing/Landing'
 import GameStart from './pages/Game/GameStart'
+import Landing from './pages/Landing/Landing'
+
 
 function App() {
   return (
     <>
-      
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path='/' element={<Landing />} />
         <Route path='/game-start' element={<GameStart />} />
       </Routes>
     </>

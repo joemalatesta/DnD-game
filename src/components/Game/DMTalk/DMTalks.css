@@ -1,0 +1,15 @@
+.app {
+  display: flex;
+  justify-content: center;
+}
+.dm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  width: 800px;
+  border:5px;
+  background-color: black;
+  color:antiquewhite;
+  opacity: 50%;
+}
