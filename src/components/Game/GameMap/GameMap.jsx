@@ -1,12 +1,11 @@
 import './GameMap.css'
-import { useState } from 'react'
 import { mapDivs } from '../Map'
 
 
 const GameMap = (props) => {
   console.log( mapDivs[1].div)
   let map = []
-  for(let i = 0; i <2100; i++){
+  for(let i = 0; i <10000; i++){
     map.push(mapDivs[i].div)
   } 
 
