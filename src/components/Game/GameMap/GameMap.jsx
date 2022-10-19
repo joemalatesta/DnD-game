@@ -1,25 +1,22 @@
 import './GameMap.css'
+import { useState } from 'react'
+import { mapDivs } from '../Map'
 
 
 const GameMap = (props) => {
-  
-  // let column = ["a","b","c","d","e","f","g","h","i","j",'k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','aa','bb','cc','dd','ee','ff','gg','hh','ii','jj','kk','ll','mm','nn','oo','pp','qq','rr','ss','tt','uu','vv','ww','xx','yy','zz','aaa','bbb','ccc','ddd','eee','fff','ggg','hhh','iii','jjj','kkk','lll','mmm','nnn','ooo','ppp','qqq','rrr','sss','ttt','uuu','vvv','www','xxx','yyy','zzz','aaaa','bbbb','cccc','dddd','eeee','ffff','gggg','hhhh','iiii','jjjj','kkkk','llll','mmmmm','nnnn','oooo','pppp','qqqq','rrrr','ssss','tttt','uuuu','vvvv']
+  console.log( mapDivs[1].div)
+  let map = []
+  for(let i = 0; i <2100; i++){
+    map.push(mapDivs[i].div)
+  } 
 
-  // let boardArr = []
-  // column.forEach(alpha => {
-  //  for(let i = 1; i<101; i++){
-  //   let tile = alpha + i
-  //   boardArr.push(tile)
-  //  }
-  // }) 
- 
-  // let gamePlayArea = boardArr.map((loc) => <div className="square" key={loc} id={loc}></div>)
-  
+  console.log(map);
 
   return (
       <div hidden={props.mapView ? true : false}>
         <div className='map'>
-          <h1 style={{color: 'white'}}>Just a big map</h1>
+          {map.map((sqr,idx) => 
+            sqr )}
         </div>  
       </div>
     )
