@@ -3,14 +3,12 @@ import { mapDivs } from '../Map'
 
 
 const GameMap = (props) => {
-  console.log( mapDivs[1].div)
+
   let map = []
-  for(let i = 0; i <10000; i++){
+  for(let i = 0; i <3000; i++){
     map.push(mapDivs[i].div)
   } 
-
-  console.log(map);
-
+  
   return (
       <div hidden={props.mapView ? true : false}>
         <div className='map'>
