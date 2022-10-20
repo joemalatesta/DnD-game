@@ -16,7 +16,7 @@ const AdventureMap = (props) => {
   const [j,setJ] = useState(mapDivs[105].div)
   const [k,setK] = useState(mapDivs[201].div)
   const [l,setL] = useState(mapDivs[202].div)
-  const [m,setM] = useState(mapDivs[203].div)
+  // const [m,setM] = useState(mapDivs[203].div)
   const [n,setN] = useState(mapDivs[204].div)
   const [o,setO] = useState(mapDivs[205].div)
   const [p,setP] = useState(mapDivs[301].div)
