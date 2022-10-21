@@ -4,7 +4,7 @@ import GameMap from "./GameMap/GameMap"
 import DMTalk from "./DMTalk/DMTalk"
 
 const PlayMap = (props) => {
-  const [mapView, setMapView]=useState(true)
+  const [mapView, setMapView]=useState(false)
   const [dMView, setDMView]=useState(true)
   // const [mapView, setMapView]=useState(true)
   // const [mapView, setMapView]=useState(true)

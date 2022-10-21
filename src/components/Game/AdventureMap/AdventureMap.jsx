@@ -4,60 +4,65 @@ import './AdventureMap.css'
 
 const AdventureMap = (props) => {
   const [charSpot, setCharSpot] = useState(mapDivs[66])
-  const [a,setA] = useState(mapDivs[1].div)
-  const [b,setB] = useState(mapDivs[2].div)
-  const [c,setC] = useState(mapDivs[3].div)
-  const [d,setD] = useState(mapDivs[4].div)
-  const [e,setE] = useState(mapDivs[5].div)
-  const [f,setF] = useState(mapDivs[101].div)
-  const [g,setG] = useState(mapDivs[102].div)
-  const [h,setH] = useState(mapDivs[103].div)
-  const [i,setI] = useState(mapDivs[104].div)
-  const [j,setJ] = useState(mapDivs[105].div)
-  const [k,setK] = useState(mapDivs[201].div)
-  const [l,setL] = useState(mapDivs[202].div)
-  // const [m,setM] = useState(mapDivs[203].div)
-  const [n,setN] = useState(mapDivs[204].div)
-  const [o,setO] = useState(mapDivs[205].div)
-  const [p,setP] = useState(mapDivs[301].div)
-  const [q,setQ] = useState(mapDivs[302].div)
-  const [r,setR] = useState(mapDivs[303].div)
-  const [s,setS] = useState(mapDivs[304].div)
-  const [t,setT] = useState(mapDivs[305].div)
-  const [u,setU] = useState(mapDivs[401].div)
-  const [v,setV] = useState(mapDivs[402].div)
-  const [w,setW] = useState(mapDivs[403].div)
-  const [x,setX] = useState(mapDivs[404].div)
-  const [y,setY] = useState(mapDivs[405].div)
-  let pos1 = 1
-  let pos2 = 2
-  let pos3 = 3
-  let pos4 = 4
-  let pos5 = 5
- 
-  let pos6 = 101  
-  let pos7 = 102
-  let pos8 = 103
-  let pos9 = 104
-  let pos10 = 105
+  const [a,setA] = useState(mapDivs[7680].div)
+  const [b,setB] = useState(mapDivs[7681].div)
+  const [c,setC] = useState(mapDivs[7682].div)
+  const [d,setD] = useState(mapDivs[7683].div)
+  const [e,setE] = useState(mapDivs[7684].div)
+
+  const [f,setF] = useState(mapDivs[7780].div)
+  const [g,setG] = useState(mapDivs[7781].div)
+  const [h,setH] = useState(mapDivs[7782].div)
+  const [i,setI] = useState(mapDivs[7783].div)
+  const [j,setJ] = useState(mapDivs[7784].div)
+
+  const [k,setK] = useState(mapDivs[7880].div)
+  const [l,setL] = useState(mapDivs[7881].div)
+  const [m,setM] = useState(mapDivs[7882].div)
+  const [n,setN] = useState(mapDivs[7883].div)
+  const [o,setO] = useState(mapDivs[7884].div)
+
+  const [p,setP] = useState(mapDivs[7980].div)
+  const [q,setQ] = useState(mapDivs[7981].div)
+  const [r,setR] = useState(mapDivs[7982].div)
+  const [s,setS] = useState(mapDivs[7983].div)
+  const [t,setT] = useState(mapDivs[7984].div)
+
+  const [u,setU] = useState(mapDivs[8080].div)
+  const [v,setV] = useState(mapDivs[8081].div)
+  const [w,setW] = useState(mapDivs[8082].div)
+  const [x,setX] = useState(mapDivs[8083].div)
+  const [y,setY] = useState(mapDivs[8084].div)
   
-  let pos11 = 201
-  let pos12 = 202
-  let pos13 = 203
-  let pos14 = 204
-  let pos15 = 205
+  let pos1 = 7680
+  let pos2 = 7681
+  let pos3 = 7682
+  let pos4 = 7683
+  let pos5 = 7684
+ 
+  let pos6 = 7780  
+  let pos7 = 7781
+  let pos8 = 7782
+  let pos9 = 7783
+  let pos10 = 7784
+  
+  let pos11 = 7880
+  let pos12 = 7881
+  let pos13 = 7882
+  let pos14 = 7883
+  let pos15 = 7884
 
-  let pos16 = 301
-  let pos17 = 302
-  let pos18 = 303
-  let pos19 = 304
-  let pos20 = 305
+  let pos16 = 7980
+  let pos17 = 7981
+  let pos18 = 7982
+  let pos19 = 7983
+  let pos20 = 7984
 
-  let pos21 = 401
-  let pos22 = 402
-  let pos23 = 403
-  let pos24 = 404
-  let pos25 = 405
+  let pos21 = 8080
+  let pos22 = 8081
+  let pos23 = 8082
+  let pos24 = 8083
+  let pos25 = 8084
 
   let char =<img src="/images/char.png" alt="logo" className="App-logo" style={{ width: "60px",height: "60px", display:'flex'}}/>
 

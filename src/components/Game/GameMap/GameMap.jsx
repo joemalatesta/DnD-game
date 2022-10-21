@@ -5,7 +5,7 @@ import { mapDivs } from '../Map'
 const GameMap = (props) => {
 
   let map = []
-  for(let i = 0; i <8000; i++){
+  for(let i = 0; i <10000; i++){
     map.push(mapDivs[i].div)
   } 
   
@@ -13,7 +13,7 @@ const GameMap = (props) => {
       <div hidden={props.mapView ? true : false}>
         <div className='map'>
           {map.map((sqr,idx) => 
-            sqr )}
+            sqr)}
         </div>  
       </div>
     )
