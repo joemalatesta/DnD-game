@@ -5,7 +5,7 @@ import { mapDivs } from '../Map'
 const GameMap = (props) => {
 
   let map = []
-  for(let i = 0; i <6000; i++){
+  for(let i = 0; i <7000; i++){
     map.push(mapDivs[i].div)
   } 
   
