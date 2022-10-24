@@ -33,6 +33,8 @@ const AdventureMap = (props) => {
   const [x,setX] = useState(mapDivs[8083].div)
   const [y,setY] = useState(mapDivs[8084].div)
   const [posColor, setPosColor] = useState(charSpot.props?.style?.backgroundColor)
+  const [prevPos, setPrevPos] = useState()
+
   let pos13 = 7882
   
   let pos1 = pos13 - 202
@@ -67,24 +69,25 @@ const AdventureMap = (props) => {
   let char =<img src="/images/char.png" alt="logo" className="App-logo" style={{ width: "60px",height: "60px", display:'flex'}}/>
 
   useEffect(() => {
-    if ( charSpot.props?.style?.backgroundColor === 'brown') console.log('cannot go here');
-    else if ( charSpot.props?.style?.backgroundColor === 'blue') console.log('cannot go here');
+    if ( charSpot.props?.style?.backgroundColor === 'brown')setCharSpot(prevPos)
+    else if ( charSpot.props?.style?.backgroundColor === 'blue') setCharSpot(prevPos)
     else {
       document?.addEventListener('keydown', onKeyDown)
-      
       return ()=> {
         document.removeEventListener('keydown', onKeyDown)
       }
     }
   }, [])
 
-  console.log(posColor);
-
+  console.log(charSpot);
+  
   useEffect(() => {
     handleMap()
+    setPrevPos(pos13)
     setPosColor(charSpot.props?.style?.backgroundColor)
   }, [charSpot]);
   
+  console.log(prevPos);
   const onKeyDown = (e) => {
    switch (e.keyCode){ 
     case 38:
