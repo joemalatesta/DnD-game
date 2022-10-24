@@ -10,7 +10,7 @@ const GameMap = (props) => {
     map.push(mapDivs[i].div)
   } 
   //maybe add the hidden attribute when pushing to the map. then add as state so when I go over it on the adventure page i can remove the hidden aspect. 
-  console.log(map);
+  // console.log(map);
   return (
       <div hidden={props.mapView ? true : false}>
         <div className='map'>
