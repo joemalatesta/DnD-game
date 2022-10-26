@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { findRenderedComponentWithType } from 'react-dom/test-utils';
 import { mapDivs } from '../Map';
 import './AdventureMap.css'
 
@@ -8,32 +9,27 @@ const AdventureMap = (props) => {
   const [c,setC] = useState(mapDivs[7682].div)
   const [d,setD] = useState(mapDivs[7683].div)
   const [e,setE] = useState(mapDivs[7684].div)
-  
   const [f,setF] = useState(mapDivs[7780].div)
   const [g,setG] = useState(mapDivs[7781].div)
   const [h,setH] = useState(mapDivs[7782].div)
   const [i,setI] = useState(mapDivs[7783].div)
   const [j,setJ] = useState(mapDivs[7784].div)
-  
   const [k,setK] = useState(mapDivs[7880].div)
   const [l,setL] = useState(mapDivs[7881].div)
   const [charSpot, setCharSpot] = useState(mapDivs[7882].div)
   const [n,setN] = useState(mapDivs[7883].div)
   const [o,setO] = useState(mapDivs[7884].div)
-
   const [p,setP] = useState(mapDivs[7980].div)
   const [q,setQ] = useState(mapDivs[7981].div)
   const [r,setR] = useState(mapDivs[7982].div)
   const [s,setS] = useState(mapDivs[7983].div)
   const [t,setT] = useState(mapDivs[7984].div)
-
   const [u,setU] = useState(mapDivs[8080].div)
   const [v,setV] = useState(mapDivs[8081].div)
   const [w,setW] = useState(mapDivs[8082].div)
   const [x,setX] = useState(mapDivs[8083].div)
   const [y,setY] = useState(mapDivs[8084].div)
-  const [posColor, setPosColor] = useState(charSpot.props?.style?.backgroundColor)
-
+  const [posColor, setPosColor] = useState()
   let pos13 
 
   useEffect(() => {
@@ -47,18 +43,15 @@ const AdventureMap = (props) => {
       return ()=> {
         document.removeEventListener('keydown', onKeyDown)
       }
-  }, [])
-
-  console.log(posColor)
-  console.log(charSpot.props?.style?.backgroundColor)
-  
-  useEffect(() => {
-    setPosColor(charSpot.props?.style?.backgroundColor)
-    handleMap()
   }, [charSpot])
-  
+
+  const handleChangeColor = () => {
+    setPosColor(charSpot.props?.style?.backgroundColor)
+    console.log("inside handleChangeColor", charSpot.props?.style?.backgroundColor);
+  }
+
   const onKeyDown = (e) => {
-    console.log(charSpot.props?.style?.backgroundColor, 'inside the onKeyDown');
+    console.log(charSpot.props?.style?.backgroundColor,'inside onKeyDown');
     if(charSpot.props?.style?.backgroundColor !== 'brown'){
       switch (e.keyCode){ 
         case 38:
@@ -181,8 +174,21 @@ const AdventureMap = (props) => {
           console.log('do nothing', e.keyCode)
         break         
       }
+      handleChangeColor()
     }
   }
+
+  console.log(posColor)
+  console.log(charSpot.props?.style?.backgroundColor)
+  
+  useEffect(() => {
+    // console.log(charSpot.props?.style?.backgroundColor)
+    console.log(posColor)
+    setPosColor(charSpot.props?.style?.backgroundColor)
+    console.log(posColor)
+    handleMap()
+  }, [onKeyDown, charSpot, posColor])
+  
   const handleMap = () => {
       return  (
         <>
@@ -200,7 +206,7 @@ const AdventureMap = (props) => {
     <>
       <div hidden={props.mapView ? false : true}>
         <div className='app'>
-          <div onKeyDown={(e)=>console.log(e.key)} className="container">
+          <div  className="container">
             {handleMap()}
           </div>
         </div>
@@ -210,3 +216,5 @@ const AdventureMap = (props) => {
 }
  
 export default AdventureMap
+
+
