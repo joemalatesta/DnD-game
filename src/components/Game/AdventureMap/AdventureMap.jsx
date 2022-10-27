@@ -1,5 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
-import { findRenderedComponentWithType } from 'react-dom/test-utils';
+import { useEffect, useState } from 'react';
 import { mapDivs } from '../Map';
 import './AdventureMap.css'
 
@@ -29,178 +28,186 @@ const AdventureMap = (props) => {
   const [w,setW] = useState(mapDivs[8082].div)
   const [x,setX] = useState(mapDivs[8083].div)
   const [y,setY] = useState(mapDivs[8084].div)
+  const [prevSpot, setPrevSpot] = useState()
   const [posColor, setPosColor] = useState()
   let pos13 
+
+  console.log(charSpot);
 
   useEffect(() => {
     pos13 = 7882
   }, []);
 
   let char =<img src="/images/char.png" alt="logo" className="App-logo" style={{ width: "60px",height: "60px", display:'flex'}}/>
-  
-  useEffect(() => {
-      document?.addEventListener('keydown', onKeyDown)
-      return ()=> {
-        document.removeEventListener('keydown', onKeyDown)
-      }
-  }, [charSpot])
 
-  const handleChangeColor = () => {
-    setPosColor(charSpot.props?.style?.backgroundColor)
-    console.log("inside handleChangeColor", charSpot.props?.style?.backgroundColor);
-  }
+  useEffect(() => {
+    document?.addEventListener('keydown', onKeyDown)
+    return ()=> {
+      document.removeEventListener('keydown', onKeyDown)
+    }
+  }, [])
 
   const onKeyDown = (e) => {
-    console.log(charSpot.props?.style?.backgroundColor,'inside onKeyDown');
-    if(charSpot.props?.style?.backgroundColor !== 'brown'){
-      switch (e.keyCode){ 
-        case 38:
-          pos13 = pos13-100
-          setA(mapDivs[pos13 - 202].div)
-          setB(mapDivs[pos13 - 201].div)
-          setC(mapDivs[pos13 - 200].div)
-          setD(mapDivs[pos13 - 199].div)
-          setE(mapDivs[pos13 - 198].div)
-          setF(mapDivs[pos13 - 102].div)
-          setG(mapDivs[pos13 - 101].div)
-          setH(mapDivs[pos13 - 100].div)
-          setI(mapDivs[pos13 - 99].div)
-          setJ(mapDivs[pos13 - 98].div)
-          setK(mapDivs[pos13 - 2].div)
-          setL(mapDivs[pos13 - 1].div)
-          setCharSpot(mapDivs[pos13].div)
-          setN(mapDivs[pos13 + 1].div)
-          setO(mapDivs[pos13 + 2].div)
-          setP(mapDivs[pos13 + 98].div)
-          setQ(mapDivs[pos13 + 99].div)
-          setR(mapDivs[pos13 + 100].div)
-          setS(mapDivs[pos13 + 101].div)
-          setT(mapDivs[pos13 + 102].div)
-          setU(mapDivs[pos13 + 198].div)
-          setV(mapDivs[pos13 + 199].div)
-          setW(mapDivs[pos13 + 200].div)
-          setX(mapDivs[pos13 + 201].div)
-          setY(mapDivs[pos13 + 202].div)
-          break
+    console.log(pos13)
+    setPrevSpot(pos13)
+    console.log(pos13)
 
-        case 40:    
-          pos13 = pos13+100
-          setA(mapDivs[pos13 - 202].div)
-          setB(mapDivs[pos13 - 201].div)
-          setC(mapDivs[pos13 - 200].div)
-          setD(mapDivs[pos13 - 199].div)
-          setE(mapDivs[pos13 - 198].div)
-          setF(mapDivs[pos13 - 102].div)
-          setG(mapDivs[pos13 - 101].div)
-          setH(mapDivs[pos13 - 100].div)
-          setI(mapDivs[pos13 - 99].div)
-          setJ(mapDivs[pos13 - 98].div)
-          setK(mapDivs[pos13 - 2].div)
-          setL(mapDivs[pos13 - 1].div)
-          setCharSpot(mapDivs[pos13].div)
-          setN(mapDivs[pos13 + 1].div)
-          setO(mapDivs[pos13 + 2].div)
-          setP(mapDivs[pos13 + 98].div)
-          setQ(mapDivs[pos13 + 99].div)
-          setR(mapDivs[pos13 + 100].div)
-          setS(mapDivs[pos13 + 101].div)
-          setT(mapDivs[pos13 + 102].div)
-          setU(mapDivs[pos13 + 198].div)
-          setV(mapDivs[pos13 + 199].div)
-          setW(mapDivs[pos13 + 200].div)
-          setX(mapDivs[pos13 + 201].div)
-          setY(mapDivs[pos13 + 202].div)
-          break
+    switch (e.keyCode){ 
+      case 38:
+        pos13 = pos13-100
+        setA(mapDivs[pos13 - 202].div)
+        setB(mapDivs[pos13 - 201].div)
+        setC(mapDivs[pos13 - 200].div)
+        setD(mapDivs[pos13 - 199].div)
+        setE(mapDivs[pos13 - 198].div)
+        setF(mapDivs[pos13 - 102].div)
+        setG(mapDivs[pos13 - 101].div)
+        setH(mapDivs[pos13 - 100].div)
+        setI(mapDivs[pos13 - 99].div)
+        setJ(mapDivs[pos13 - 98].div)
+        setK(mapDivs[pos13 - 2].div)
+        setL(mapDivs[pos13 - 1].div)
+        setCharSpot(mapDivs[pos13].div)
+        setN(mapDivs[pos13 + 1].div)
+        setO(mapDivs[pos13 + 2].div)
+        setP(mapDivs[pos13 + 98].div)
+        setQ(mapDivs[pos13 + 99].div)
+        setR(mapDivs[pos13 + 100].div)
+        setS(mapDivs[pos13 + 101].div)
+        setT(mapDivs[pos13 + 102].div)
+        setU(mapDivs[pos13 + 198].div)
+        setV(mapDivs[pos13 + 199].div)
+        setW(mapDivs[pos13 + 200].div)
+        setX(mapDivs[pos13 + 201].div)
+        setY(mapDivs[pos13 + 202].div)
 
-        case 37:
-          pos13 = pos13-1
-          setA(mapDivs[pos13 - 202].div)
-          setB(mapDivs[pos13 - 201].div)
-          setC(mapDivs[pos13 - 200].div)
-          setD(mapDivs[pos13 - 199].div)
-          setE(mapDivs[pos13 - 198].div)
-          setF(mapDivs[pos13 - 102].div)
-          setG(mapDivs[pos13 - 101].div)
-          setH(mapDivs[pos13 - 100].div)
-          setI(mapDivs[pos13 - 99].div)
-          setJ(mapDivs[pos13 - 98].div)
-          setK(mapDivs[pos13 - 2].div)
-          setL(mapDivs[pos13 - 1].div)
-          setCharSpot(mapDivs[pos13].div)
-          setN(mapDivs[pos13 + 1].div)
-          setO(mapDivs[pos13 + 2].div)
-          setP(mapDivs[pos13 + 98].div)
-          setQ(mapDivs[pos13 + 99].div)
-          setR(mapDivs[pos13 + 100].div)
-          setS(mapDivs[pos13 + 101].div)
-          setT(mapDivs[pos13 + 102].div)
-          setU(mapDivs[pos13 + 198].div)
-          setV(mapDivs[pos13 + 199].div)
-          setW(mapDivs[pos13 + 200].div)
-          setX(mapDivs[pos13 + 201].div)
-          setY(mapDivs[pos13 + 202].div)
-          break
+        break
 
-        case 39: 
-          pos13 = pos13+1
-          setA(mapDivs[pos13 - 202].div)
-          setB(mapDivs[pos13 - 201].div)
-          setC(mapDivs[pos13 - 200].div)
-          setD(mapDivs[pos13 - 199].div)
-          setE(mapDivs[pos13 - 198].div)
-          setF(mapDivs[pos13 - 102].div)
-          setG(mapDivs[pos13 - 101].div)
-          setH(mapDivs[pos13 - 100].div)
-          setI(mapDivs[pos13 - 99].div)
-          setJ(mapDivs[pos13 - 98].div)
-          setK(mapDivs[pos13 - 2].div)
-          setL(mapDivs[pos13 - 1].div)
-          setCharSpot(mapDivs[pos13].div)
-          setN(mapDivs[pos13 + 1].div)
-          setO(mapDivs[pos13 + 2].div)
-          setP(mapDivs[pos13 + 98].div)
-          setQ(mapDivs[pos13 + 99].div)
-          setR(mapDivs[pos13 + 100].div)
-          setS(mapDivs[pos13 + 101].div)
-          setT(mapDivs[pos13 + 102].div)
-          setU(mapDivs[pos13 + 198].div)
-          setV(mapDivs[pos13 + 199].div)
-          setW(mapDivs[pos13 + 200].div)
-          setX(mapDivs[pos13 + 201].div)
-          setY(mapDivs[pos13 + 202].div)
-          break
+      case 40:    
+        pos13 = pos13+100
+        setA(mapDivs[pos13 - 202].div)
+        setB(mapDivs[pos13 - 201].div)
+        setC(mapDivs[pos13 - 200].div)
+        setD(mapDivs[pos13 - 199].div)
+        setE(mapDivs[pos13 - 198].div)
+        setF(mapDivs[pos13 - 102].div)
+        setG(mapDivs[pos13 - 101].div)
+        setH(mapDivs[pos13 - 100].div)
+        setI(mapDivs[pos13 - 99].div)
+        setJ(mapDivs[pos13 - 98].div)
+        setK(mapDivs[pos13 - 2].div)
+        setL(mapDivs[pos13 - 1].div)
+        setCharSpot(mapDivs[pos13].div)
+        setN(mapDivs[pos13 + 1].div)
+        setO(mapDivs[pos13 + 2].div)
+        setP(mapDivs[pos13 + 98].div)
+        setQ(mapDivs[pos13 + 99].div)
+        setR(mapDivs[pos13 + 100].div)
+        setS(mapDivs[pos13 + 101].div)
+        setT(mapDivs[pos13 + 102].div)
+        setU(mapDivs[pos13 + 198].div)
+        setV(mapDivs[pos13 + 199].div)
+        setW(mapDivs[pos13 + 200].div)
+        setX(mapDivs[pos13 + 201].div)
+        setY(mapDivs[pos13 + 202].div)
+        break
 
-        default:
-          console.log('do nothing', e.keyCode)
+      case 37:
+        pos13 = pos13-1
+        setA(mapDivs[pos13 - 202].div)
+        setB(mapDivs[pos13 - 201].div)
+        setC(mapDivs[pos13 - 200].div)
+        setD(mapDivs[pos13 - 199].div)
+        setE(mapDivs[pos13 - 198].div)
+        setF(mapDivs[pos13 - 102].div)
+        setG(mapDivs[pos13 - 101].div)
+        setH(mapDivs[pos13 - 100].div)
+        setI(mapDivs[pos13 - 99].div)
+        setJ(mapDivs[pos13 - 98].div)
+        setK(mapDivs[pos13 - 2].div)
+        setL(mapDivs[pos13 - 1].div)
+        setCharSpot(mapDivs[pos13].div)
+        setN(mapDivs[pos13 + 1].div)
+        setO(mapDivs[pos13 + 2].div)
+        setP(mapDivs[pos13 + 98].div)
+        setQ(mapDivs[pos13 + 99].div)
+        setR(mapDivs[pos13 + 100].div)
+        setS(mapDivs[pos13 + 101].div)
+        setT(mapDivs[pos13 + 102].div)
+        setU(mapDivs[pos13 + 198].div)
+        setV(mapDivs[pos13 + 199].div)
+        setW(mapDivs[pos13 + 200].div)
+        setX(mapDivs[pos13 + 201].div)
+        setY(mapDivs[pos13 + 202].div)
+        break
+
+      case 39: 
+        pos13 = pos13+1
+        setA(mapDivs[pos13 - 202].div)
+        setB(mapDivs[pos13 - 201].div)
+        setC(mapDivs[pos13 - 200].div)
+        setD(mapDivs[pos13 - 199].div)
+        setE(mapDivs[pos13 - 198].div)
+        setF(mapDivs[pos13 - 102].div)
+        setG(mapDivs[pos13 - 101].div)
+        setH(mapDivs[pos13 - 100].div)
+        setI(mapDivs[pos13 - 99].div)
+        setJ(mapDivs[pos13 - 98].div)
+        setK(mapDivs[pos13 - 2].div)
+        setL(mapDivs[pos13 - 1].div)
+        setCharSpot(mapDivs[pos13].div)
+        setN(mapDivs[pos13 + 1].div)
+        setO(mapDivs[pos13 + 2].div)
+        setP(mapDivs[pos13 + 98].div)
+        setQ(mapDivs[pos13 + 99].div)
+        setR(mapDivs[pos13 + 100].div)
+        setS(mapDivs[pos13 + 101].div)
+        setT(mapDivs[pos13 + 102].div)
+        setU(mapDivs[pos13 + 198].div)
+        setV(mapDivs[pos13 + 199].div)
+        setW(mapDivs[pos13 + 200].div)
+        setX(mapDivs[pos13 + 201].div)
+        setY(mapDivs[pos13 + 202].div)
+        break
+
+      default:
+        console.log('do nothing', e.keyCode)
         break         
-      }
-      handleChangeColor()
     }
   }
 
-  console.log(posColor)
-  console.log(charSpot.props?.style?.backgroundColor)
+  const handleMap = () => {
+    return  (
+      <>
+        {a} {b}   {c}   {d} {e}
+        {f} {g}   {h}   {i} {j}
+        {k} {l} {char}  {n} {o}
+        {p} {q}   {r}   {s} {t}
+        {u} {v}   {w}   {x} {y}
+      </>
+    )
+  } 
+
+  const handleCheckValidSpot = () => {
+    console.log(posColor, 'HANDLEVALID');
+    if(posColor === 'blue' || posColor === 'brown'){
+      console.log('inside equal to blue or brown' );
+      setCharSpot(mapDivs[prevSpot].div)
+      return
+    }else{
+      console.log('not blue/brown');
+      return
+    }
+  }
   
   useEffect(() => {
-    // console.log(charSpot.props?.style?.backgroundColor)
-    console.log(posColor)
-    setPosColor(charSpot.props?.style?.backgroundColor)
-    console.log(posColor)
-    handleMap()
-  }, [onKeyDown, charSpot, posColor])
-  
-  const handleMap = () => {
-      return  (
-        <>
-          {a}{b}{c}{d}{e}
-          {f}{g}{h}{i}{j}
-          {k}{l}{char}{n}{o}
-          {p}{q}{r}{s}{t}
-          {u}{v}{w}{x}{y}
-        </>
-      )
-    } 
-
+    console.log(prevSpot);
+    setPosColor(charSpot?.props?.style.backgroundColor)
+    setPrevSpot(pos13)
+    handleCheckValidSpot()
+    
+  }, [charSpot])
+      
 
   return ( 
     <>
@@ -217,4 +224,12 @@ const AdventureMap = (props) => {
  
 export default AdventureMap
 
+
+
+
+  // const handleChangeColor = () => {
+  //   setPosColor(charSpot?.props?.style?.backgroundColor)
+  //   console.log("inside handleChangeColor", posColor);
+  // }
+  
 
