@@ -30,9 +30,10 @@ const AdventureMap = (props) => {
   const [y,setY] = useState(mapDivs[8084].div)
   const [prevSpot, setPrevSpot] = useState()
   const [posColor, setPosColor] = useState()
+  const [currentSpot, setCurrentSpot] = useState()
   let pos13 
 
-  console.log(charSpot);
+
 
   useEffect(() => {
     pos13 = 7882
@@ -48,9 +49,7 @@ const AdventureMap = (props) => {
   }, [])
 
   const onKeyDown = (e) => {
-    console.log(pos13)
-    setPrevSpot(pos13)
-    console.log(pos13)
+    setPrevSpot(currentSpot)
 
     switch (e.keyCode){ 
       case 38:
@@ -80,7 +79,7 @@ const AdventureMap = (props) => {
         setW(mapDivs[pos13 + 200].div)
         setX(mapDivs[pos13 + 201].div)
         setY(mapDivs[pos13 + 202].div)
-
+        setCurrentSpot(pos13)
         break
 
       case 40:    
@@ -110,6 +109,7 @@ const AdventureMap = (props) => {
         setW(mapDivs[pos13 + 200].div)
         setX(mapDivs[pos13 + 201].div)
         setY(mapDivs[pos13 + 202].div)
+        setCurrentSpot(pos13)
         break
 
       case 37:
@@ -139,6 +139,7 @@ const AdventureMap = (props) => {
         setW(mapDivs[pos13 + 200].div)
         setX(mapDivs[pos13 + 201].div)
         setY(mapDivs[pos13 + 202].div)
+        setCurrentSpot(pos13)
         break
 
       case 39: 
@@ -168,6 +169,7 @@ const AdventureMap = (props) => {
         setW(mapDivs[pos13 + 200].div)
         setX(mapDivs[pos13 + 201].div)
         setY(mapDivs[pos13 + 202].div)
+        setCurrentSpot(pos13)
         break
 
       default:
