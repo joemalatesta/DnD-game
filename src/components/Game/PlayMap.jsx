@@ -6,11 +6,17 @@ import DMTalk from "./DMTalk/DMTalk"
 const PlayMap = (props) => {
   const [mapView, setMapView]=useState(true)
   const [dMView, setDMView]=useState(true)
+  const [dMNumCode,setDMNumCode] = useState()
   // const [mapView, setMapView]=useState(true)
   // const [mapView, setMapView]=useState(true)
   // const [mapView, setMapView]=useState(true)
 
-
+  const checkPos = (num) => {
+    if(num === undefined){
+      toggleDM(!dMView)
+      setDMNumCode(num)
+    }
+  }
   
   const toggleMap=()=>setMapView(!mapView)
   const toggleDM=()=>setDMView(!dMView)
@@ -25,8 +31,8 @@ const PlayMap = (props) => {
         <button onClick={()=>toggleDM()}>something triggers a page where the DM SPEAKS</button>
         <h1>
           <GameMap mapView={mapView} />
-          <AdventureMap mapView={mapView} />
-          <DMTalk dMView={dMView}/>
+          <AdventureMap checkPos={checkPos} mapView={mapView} />
+          <DMTalk dMNumCode={dMNumCode} dMView={dMView}/>
         </h1>
       </div>
     </>

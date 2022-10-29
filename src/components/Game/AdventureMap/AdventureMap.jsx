@@ -230,11 +230,11 @@ const AdventureMap = (props) => {
       setW(mapDivs[prevSpot + 200].div)
       setX(mapDivs[prevSpot + 201].div)
       setY(mapDivs[prevSpot + 202].div)
-      return
     }else{
       // console.log('not blue/brown');
-      return
     }
+    props.checkPos(currentSpot)
+    return
   }
   
       
