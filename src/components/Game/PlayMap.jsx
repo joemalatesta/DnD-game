@@ -18,7 +18,7 @@ const PlayMap = (props) => {
     }
     else {setDMView(true)} 
   }
-  
+  console.log(dMNumCode);
   const toggleMap=()=>setMapView(!mapView)
   const toggleDM=()=>setDMView(!dMView)
     

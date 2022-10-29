@@ -51,129 +51,61 @@ const AdventureMap = (props) => {
     }
   }, [])
 
+  const handleSetDivs = (num) => {
+    setA(mapDivs[num - 202].div)
+    setB(mapDivs[num - 201].div)
+    setC(mapDivs[num - 200].div)
+    setD(mapDivs[num - 199].div)
+    setE(mapDivs[num - 198].div)
+    setF(mapDivs[num - 102].div)
+    setG(mapDivs[num - 101].div)
+    setH(mapDivs[num - 100].div)
+    setI(mapDivs[num - 99].div)
+    setJ(mapDivs[num - 98].div)
+    setK(mapDivs[num - 2].div)
+    setL(mapDivs[num - 1].div)
+    setCharSpot(mapDivs[num].div)
+    setN(mapDivs[num + 1].div)
+    setO(mapDivs[num + 2].div)
+    setP(mapDivs[num + 98].div)
+    setQ(mapDivs[num + 99].div)
+    setR(mapDivs[num + 100].div)
+    setS(mapDivs[num + 101].div)
+    setT(mapDivs[num + 102].div)
+    setU(mapDivs[num + 198].div)
+    setV(mapDivs[num + 199].div)
+    setW(mapDivs[num + 200].div)
+    setX(mapDivs[num + 201].div)
+    setY(mapDivs[num + 202].div)
+  }
+
   const onKeyDown = (e) => {
     
     switch (e.keyCode){ 
       case 38:
         pos13 = pos13-100
-        setA(mapDivs[pos13 - 202].div)
-        setB(mapDivs[pos13 - 201].div)
-        setC(mapDivs[pos13 - 200].div)
-        setD(mapDivs[pos13 - 199].div)
-        setE(mapDivs[pos13 - 198].div)
-        setF(mapDivs[pos13 - 102].div)
-        setG(mapDivs[pos13 - 101].div)
-        setH(mapDivs[pos13 - 100].div)
-        setI(mapDivs[pos13 - 99].div)
-        setJ(mapDivs[pos13 - 98].div)
-        setK(mapDivs[pos13 - 2].div)
-        setL(mapDivs[pos13 - 1].div)
-        setCharSpot(mapDivs[pos13].div)
-        setN(mapDivs[pos13 + 1].div)
-        setO(mapDivs[pos13 + 2].div)
-        setP(mapDivs[pos13 + 98].div)
-        setQ(mapDivs[pos13 + 99].div)
-        setR(mapDivs[pos13 + 100].div)
-        setS(mapDivs[pos13 + 101].div)
-        setT(mapDivs[pos13 + 102].div)
-        setU(mapDivs[pos13 + 198].div)
-        setV(mapDivs[pos13 + 199].div)
-        setW(mapDivs[pos13 + 200].div)
-        setX(mapDivs[pos13 + 201].div)
-        setY(mapDivs[pos13 + 202].div)
+        handleSetDivs(pos13)
         setCurrentSpot(pos13)
         setPrevSpot(pos13+100)
         break
         
         case 40:    
         pos13 = pos13+100
-        setA(mapDivs[pos13 - 202].div)
-        setB(mapDivs[pos13 - 201].div)
-        setC(mapDivs[pos13 - 200].div)
-        setD(mapDivs[pos13 - 199].div)
-        setE(mapDivs[pos13 - 198].div)
-        setF(mapDivs[pos13 - 102].div)
-        setG(mapDivs[pos13 - 101].div)
-        setH(mapDivs[pos13 - 100].div)
-        setI(mapDivs[pos13 - 99].div)
-        setJ(mapDivs[pos13 - 98].div)
-        setK(mapDivs[pos13 - 2].div)
-        setL(mapDivs[pos13 - 1].div)
-        setCharSpot(mapDivs[pos13].div)
-        setN(mapDivs[pos13 + 1].div)
-        setO(mapDivs[pos13 + 2].div)
-        setP(mapDivs[pos13 + 98].div)
-        setQ(mapDivs[pos13 + 99].div)
-        setR(mapDivs[pos13 + 100].div)
-        setS(mapDivs[pos13 + 101].div)
-        setT(mapDivs[pos13 + 102].div)
-        setU(mapDivs[pos13 + 198].div)
-        setV(mapDivs[pos13 + 199].div)
-        setW(mapDivs[pos13 + 200].div)
-        setX(mapDivs[pos13 + 201].div)
-        setY(mapDivs[pos13 + 202].div)
+        handleSetDivs(pos13)
         setCurrentSpot(pos13)
         setPrevSpot(pos13-100)
         break
         
       case 37:
         pos13 = pos13-1
-        setA(mapDivs[pos13 - 202].div)
-        setB(mapDivs[pos13 - 201].div)
-        setC(mapDivs[pos13 - 200].div)
-        setD(mapDivs[pos13 - 199].div)
-        setE(mapDivs[pos13 - 198].div)
-        setF(mapDivs[pos13 - 102].div)
-        setG(mapDivs[pos13 - 101].div)
-        setH(mapDivs[pos13 - 100].div)
-        setI(mapDivs[pos13 - 99].div)
-        setJ(mapDivs[pos13 - 98].div)
-        setK(mapDivs[pos13 - 2].div)
-        setL(mapDivs[pos13 - 1].div)
-        setCharSpot(mapDivs[pos13].div)
-        setN(mapDivs[pos13 + 1].div)
-        setO(mapDivs[pos13 + 2].div)
-        setP(mapDivs[pos13 + 98].div)
-        setQ(mapDivs[pos13 + 99].div)
-        setR(mapDivs[pos13 + 100].div)
-        setS(mapDivs[pos13 + 101].div)
-        setT(mapDivs[pos13 + 102].div)
-        setU(mapDivs[pos13 + 198].div)
-        setV(mapDivs[pos13 + 199].div)
-        setW(mapDivs[pos13 + 200].div)
-        setX(mapDivs[pos13 + 201].div)
-        setY(mapDivs[pos13 + 202].div)
+        handleSetDivs(pos13)
         setCurrentSpot(pos13)
         setPrevSpot(pos13+1)
         break
         
       case 39: 
         pos13 = pos13+1
-        setA(mapDivs[pos13 - 202].div)
-        setB(mapDivs[pos13 - 201].div)
-        setC(mapDivs[pos13 - 200].div)
-        setD(mapDivs[pos13 - 199].div)
-        setE(mapDivs[pos13 - 198].div)
-        setF(mapDivs[pos13 - 102].div)
-        setG(mapDivs[pos13 - 101].div)
-        setH(mapDivs[pos13 - 100].div)
-        setI(mapDivs[pos13 - 99].div)
-        setJ(mapDivs[pos13 - 98].div)
-        setK(mapDivs[pos13 - 2].div)
-        setL(mapDivs[pos13 - 1].div)
-        setCharSpot(mapDivs[pos13].div)
-        setN(mapDivs[pos13 + 1].div)
-        setO(mapDivs[pos13 + 2].div)
-        setP(mapDivs[pos13 + 98].div)
-        setQ(mapDivs[pos13 + 99].div)
-        setR(mapDivs[pos13 + 100].div)
-        setS(mapDivs[pos13 + 101].div)
-        setT(mapDivs[pos13 + 102].div)
-        setU(mapDivs[pos13 + 198].div)
-        setV(mapDivs[pos13 + 199].div)
-        setW(mapDivs[pos13 + 200].div)
-        setX(mapDivs[pos13 + 201].div)
-        setY(mapDivs[pos13 + 202].div)
+        handleSetDivs(pos13)
         setCurrentSpot(pos13)
         setPrevSpot(pos13-1)
         break
@@ -197,43 +129,15 @@ const AdventureMap = (props) => {
   } 
 
   const handleCheckValidSpot = () => {
- 
     if(posColor === 'blue' || posColor === 'brown'){
       setCurrentSpot(prevSpot)
-      setA(mapDivs[prevSpot - 202].div)
-      setB(mapDivs[prevSpot - 201].div)
-      setC(mapDivs[prevSpot - 200].div)
-      setD(mapDivs[prevSpot - 199].div)
-      setE(mapDivs[prevSpot - 198].div)
-      setF(mapDivs[prevSpot - 102].div)
-      setG(mapDivs[prevSpot - 101].div)
-      setH(mapDivs[prevSpot - 100].div)
-      setI(mapDivs[prevSpot - 99].div)
-      setJ(mapDivs[prevSpot - 98].div)
-      setK(mapDivs[prevSpot - 2].div)
-      setL(mapDivs[prevSpot - 1].div)
-      setCharSpot(mapDivs[prevSpot].div)
-      setN(mapDivs[prevSpot + 1].div)
-      setO(mapDivs[prevSpot + 2].div)
-      setP(mapDivs[prevSpot + 98].div)
-      setQ(mapDivs[prevSpot + 99].div)
-      setR(mapDivs[prevSpot + 100].div)
-      setS(mapDivs[prevSpot + 101].div)
-      setT(mapDivs[prevSpot + 102].div)
-      setU(mapDivs[prevSpot + 198].div)
-      setV(mapDivs[prevSpot + 199].div)
-      setW(mapDivs[prevSpot + 200].div)
-      setX(mapDivs[prevSpot + 201].div)
-      setY(mapDivs[prevSpot + 202].div)
-    }else{
-
+      handleSetDivs(prevSpot)
     }
-    props.checkPos(currentSpot)
+    console.log(parseInt(currentSpot))
     return
   }
   
-      
- 
+  console.log('*************',currentSpot,'*************');
 
   return ( 
     <>
