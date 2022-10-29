@@ -15,7 +15,9 @@ const GameMap = (props) => {
       <div hidden={props.mapView ? true : false}>
         <div className='map'>
           {map.map((sqr,idx) => 
-            sqr
+            <div key={idx}>
+              sqr
+            </div>
           )}
         </div>  
       </div>
