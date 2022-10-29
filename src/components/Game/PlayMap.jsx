@@ -16,23 +16,20 @@ const PlayMap = (props) => {
       toggleDM(!dMView)
       setDMNumCode(num)
     }
+    else {setDMView(true)} 
   }
   
   const toggleMap=()=>setMapView(!mapView)
   const toggleDM=()=>setDMView(!dMView)
-  // const toggleMap=()=>setMapView(!mapView)
-  // const toggleMap=()=>setMapView(!mapView)
-  
-  
+    
   return ( 
     <>
       <div className="main">
         <button onClick={()=>toggleMap()}>Toggle Map</button>
-        <button onClick={()=>toggleDM()}>something triggers a page where the DM SPEAKS</button>
         <h1>
           <GameMap mapView={mapView} />
           <AdventureMap checkPos={checkPos} mapView={mapView} />
-          <DMTalk dMNumCode={dMNumCode} dMView={dMView}/>
+          <DMTalk dMNumCode={dMNumCode} dMView={dMView} />
         </h1>
       </div>
     </>

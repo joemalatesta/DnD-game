@@ -35,16 +35,12 @@ const AdventureMap = (props) => {
   let pos13 
   let char =<img src="/images/char.png" alt="logo" className="App-logo" style={{ width: "60px",height: "60px", display:'flex'}}/>
 
-  console.log(currentSpot, 'CURRENT LOCATION');
-  console.log(prevSpot);
-
   useEffect(() => {
-    pos13 = 6009 //7882
+    pos13 = 6009 //7881
   }, []);
 
   useEffect(() => {
     setPosColor(charSpot?.props?.style.backgroundColor)
-    console.log(prevSpot);
     handleCheckValidSpot()    
   }, [posColor, charSpot])
 
@@ -201,9 +197,8 @@ const AdventureMap = (props) => {
   } 
 
   const handleCheckValidSpot = () => {
-    console.log(posColor, 'HANDLEVALID');
+ 
     if(posColor === 'blue' || posColor === 'brown'){
-      console.log('inside equal to blue or brown' );
       setCurrentSpot(prevSpot)
       setA(mapDivs[prevSpot - 202].div)
       setB(mapDivs[prevSpot - 201].div)
@@ -231,7 +226,7 @@ const AdventureMap = (props) => {
       setX(mapDivs[prevSpot + 201].div)
       setY(mapDivs[prevSpot + 202].div)
     }else{
-      // console.log('not blue/brown');
+
     }
     props.checkPos(currentSpot)
     return

@@ -4,16 +4,11 @@ import texts from '../../../data/DmSpeaks/DmSpeaks'
 
 const DMTalk = (props) => {
 
-  console.log(props);
-  console.log(texts);
-
   const spoken = () => {
-    if(props.dMNumCode === undefined){
-      return texts[0].text
+    if(props.dMNumCode === undefined) {
+      return <p hidden={props.dMView? true : false} > {texts[0].text}  </p>
     }
-  }
-
-
+  }  
 
 
 
@@ -21,10 +16,8 @@ const DMTalk = (props) => {
 
 
   return ( 
-    <div  className='app' >
-      <h1 hidden={props.dMView? true : false}>
-        {spoken}
-      </h1>
+    <div hidden={props.dMView? true : false} className='app' >      
+      {spoken()}
     </div>
 
   )
