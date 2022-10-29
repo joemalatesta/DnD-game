@@ -3,43 +3,50 @@ import { mapDivs } from '../Map';
 import './AdventureMap.css'
 
 const AdventureMap = (props) => {
-  const [a,setA] = useState(mapDivs[7680].div)
-  const [b,setB] = useState(mapDivs[7681].div)
-  const [c,setC] = useState(mapDivs[7682].div)
-  const [d,setD] = useState(mapDivs[7683].div)
-  const [e,setE] = useState(mapDivs[7684].div)
-  const [f,setF] = useState(mapDivs[7780].div)
-  const [g,setG] = useState(mapDivs[7781].div)
-  const [h,setH] = useState(mapDivs[7782].div)
-  const [i,setI] = useState(mapDivs[7783].div)
-  const [j,setJ] = useState(mapDivs[7784].div)
-  const [k,setK] = useState(mapDivs[7880].div)
-  const [l,setL] = useState(mapDivs[7881].div)
-  const [charSpot, setCharSpot] = useState(mapDivs[7882].div)
-  const [n,setN] = useState(mapDivs[7883].div)
-  const [o,setO] = useState(mapDivs[7884].div)
-  const [p,setP] = useState(mapDivs[7980].div)
-  const [q,setQ] = useState(mapDivs[7981].div)
-  const [r,setR] = useState(mapDivs[7982].div)
-  const [s,setS] = useState(mapDivs[7983].div)
-  const [t,setT] = useState(mapDivs[7984].div)
-  const [u,setU] = useState(mapDivs[8080].div)
-  const [v,setV] = useState(mapDivs[8081].div)
-  const [w,setW] = useState(mapDivs[8082].div)
-  const [x,setX] = useState(mapDivs[8083].div)
-  const [y,setY] = useState(mapDivs[8084].div)
+  const [a,setA] = useState(<div></div>)
+  const [b,setB] = useState(<div></div>)
+  const [c,setC] = useState(<div></div>)
+  const [d,setD] = useState(<div></div>)
+  const [e,setE] = useState(<div></div>)
+  const [f,setF] = useState(<div></div>)
+  const [g,setG] = useState(<div></div>)
+  const [h,setH] = useState(<div></div>)
+  const [i,setI] = useState(<div></div>)
+  const [j,setJ] = useState(<div></div>)
+  const [k,setK] = useState(<div></div>)
+  const [l,setL] = useState(<div></div>)
+  const [charSpot, setCharSpot] = useState()
+  const [n,setN] = useState(<div></div>)
+  const [o,setO] = useState(<div></div>)
+  const [p,setP] = useState(<div></div>)
+  const [q,setQ] = useState(<div></div>)
+  const [r,setR] = useState(<div></div>)
+  const [s,setS] = useState(<div></div>)
+  const [t,setT] = useState(<div></div>)
+  const [u,setU] = useState(<div></div>)
+  const [v,setV] = useState(<div></div>)
+  const [w,setW] = useState(<div></div>)
+  const [x,setX] = useState(<div></div>)
+  const [y,setY] = useState(<div></div>)
   const [prevSpot, setPrevSpot] = useState()
   const [posColor, setPosColor] = useState()
   const [currentSpot, setCurrentSpot] = useState()
+  
   let pos13 
+  let char =<img src="/images/char.png" alt="logo" className="App-logo" style={{ width: "60px",height: "60px", display:'flex'}}/>
 
-
+  console.log(currentSpot, 'CURRENT LOCATION');
+  console.log(prevSpot);
 
   useEffect(() => {
-    pos13 = 7882
+    pos13 = 6009 //7882
   }, []);
 
-  let char =<img src="/images/char.png" alt="logo" className="App-logo" style={{ width: "60px",height: "60px", display:'flex'}}/>
+  useEffect(() => {
+    setPosColor(charSpot?.props?.style.backgroundColor)
+    console.log(prevSpot);
+    handleCheckValidSpot()    
+  }, [posColor, charSpot])
 
   useEffect(() => {
     document?.addEventListener('keydown', onKeyDown)
@@ -49,8 +56,7 @@ const AdventureMap = (props) => {
   }, [])
 
   const onKeyDown = (e) => {
-    setPrevSpot(currentSpot)
-
+    
     switch (e.keyCode){ 
       case 38:
         pos13 = pos13-100
@@ -80,9 +86,10 @@ const AdventureMap = (props) => {
         setX(mapDivs[pos13 + 201].div)
         setY(mapDivs[pos13 + 202].div)
         setCurrentSpot(pos13)
+        setPrevSpot(pos13+100)
         break
-
-      case 40:    
+        
+        case 40:    
         pos13 = pos13+100
         setA(mapDivs[pos13 - 202].div)
         setB(mapDivs[pos13 - 201].div)
@@ -110,8 +117,9 @@ const AdventureMap = (props) => {
         setX(mapDivs[pos13 + 201].div)
         setY(mapDivs[pos13 + 202].div)
         setCurrentSpot(pos13)
+        setPrevSpot(pos13-100)
         break
-
+        
       case 37:
         pos13 = pos13-1
         setA(mapDivs[pos13 - 202].div)
@@ -140,8 +148,9 @@ const AdventureMap = (props) => {
         setX(mapDivs[pos13 + 201].div)
         setY(mapDivs[pos13 + 202].div)
         setCurrentSpot(pos13)
+        setPrevSpot(pos13+1)
         break
-
+        
       case 39: 
         pos13 = pos13+1
         setA(mapDivs[pos13 - 202].div)
@@ -170,6 +179,7 @@ const AdventureMap = (props) => {
         setX(mapDivs[pos13 + 201].div)
         setY(mapDivs[pos13 + 202].div)
         setCurrentSpot(pos13)
+        setPrevSpot(pos13-1)
         break
 
       default:
@@ -194,22 +204,41 @@ const AdventureMap = (props) => {
     console.log(posColor, 'HANDLEVALID');
     if(posColor === 'blue' || posColor === 'brown'){
       console.log('inside equal to blue or brown' );
+      setCurrentSpot(prevSpot)
+      setA(mapDivs[prevSpot - 202].div)
+      setB(mapDivs[prevSpot - 201].div)
+      setC(mapDivs[prevSpot - 200].div)
+      setD(mapDivs[prevSpot - 199].div)
+      setE(mapDivs[prevSpot - 198].div)
+      setF(mapDivs[prevSpot - 102].div)
+      setG(mapDivs[prevSpot - 101].div)
+      setH(mapDivs[prevSpot - 100].div)
+      setI(mapDivs[prevSpot - 99].div)
+      setJ(mapDivs[prevSpot - 98].div)
+      setK(mapDivs[prevSpot - 2].div)
+      setL(mapDivs[prevSpot - 1].div)
       setCharSpot(mapDivs[prevSpot].div)
+      setN(mapDivs[prevSpot + 1].div)
+      setO(mapDivs[prevSpot + 2].div)
+      setP(mapDivs[prevSpot + 98].div)
+      setQ(mapDivs[prevSpot + 99].div)
+      setR(mapDivs[prevSpot + 100].div)
+      setS(mapDivs[prevSpot + 101].div)
+      setT(mapDivs[prevSpot + 102].div)
+      setU(mapDivs[prevSpot + 198].div)
+      setV(mapDivs[prevSpot + 199].div)
+      setW(mapDivs[prevSpot + 200].div)
+      setX(mapDivs[prevSpot + 201].div)
+      setY(mapDivs[prevSpot + 202].div)
       return
     }else{
-      console.log('not blue/brown');
+      // console.log('not blue/brown');
       return
     }
   }
   
-  useEffect(() => {
-    console.log(prevSpot);
-    setPosColor(charSpot?.props?.style.backgroundColor)
-    setPrevSpot(pos13)
-    handleCheckValidSpot()
-    
-  }, [charSpot])
       
+ 
 
   return ( 
     <>
@@ -225,13 +254,3 @@ const AdventureMap = (props) => {
 }
  
 export default AdventureMap
-
-
-
-
-  // const handleChangeColor = () => {
-  //   setPosColor(charSpot?.props?.style?.backgroundColor)
-  //   console.log("inside handleChangeColor", posColor);
-  // }
-  
-

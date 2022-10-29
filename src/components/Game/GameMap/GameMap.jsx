@@ -5,7 +5,7 @@ import { mapDivs } from '../Map'
 const GameMap = (props) => {
 
   let map = []
-  for(let i = 0; i <10; i++){
+  for(let i = 0; i <10000; i++){
     // mapDivs[i].div.setAttribute()
     map.push(mapDivs[i].div)
   } 
@@ -15,9 +15,7 @@ const GameMap = (props) => {
       <div hidden={props.mapView ? true : false}>
         <div className='map'>
           {map.map((sqr,idx) => 
-            <div key={idx}>
               sqr
-            </div>
           )}
         </div>  
       </div>
