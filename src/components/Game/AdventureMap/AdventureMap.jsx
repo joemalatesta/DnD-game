@@ -36,7 +36,7 @@ const AdventureMap = (props) => {
   let char =<img src="/images/char.png" alt="logo" className="App-logo" style={{ width: "60px",height: "60px", display:'flex'}}/>
 
   useEffect(() => {
-    pos13 = 6009 //7881
+    pos13 = 3252 //6009 //7881
   }, []);
 
   useEffect(() => {
@@ -133,7 +133,7 @@ const AdventureMap = (props) => {
       setCurrentSpot(prevSpot)
       handleSetDivs(prevSpot)
     }
-    console.log(parseInt(currentSpot))
+    props.checkPos(parseInt(currentSpot))
     return
   }
   

@@ -3,20 +3,20 @@ import AdventureMap from "./AdventureMap/AdventureMap"
 import GameMap from "./GameMap/GameMap"
 import DMTalk from "./DMTalk/DMTalk"
 
+
 const PlayMap = (props) => {
   const [mapView, setMapView]=useState(true)
   const [dMView, setDMView]=useState(true)
   const [dMNumCode,setDMNumCode] = useState()
-  // const [mapView, setMapView]=useState(true)
-  // const [mapView, setMapView]=useState(true)
-  // const [mapView, setMapView]=useState(true)
 
   const checkPos = (num) => {
-    if(num === undefined){
+    console.log(num);
+    if(isNaN(num)){
       toggleDM(!dMView)
+    } else {
       setDMNumCode(num)
     }
-    else {setDMView(true)} 
+    
   }
   console.log(dMNumCode);
   const toggleMap=()=>setMapView(!mapView)
@@ -30,6 +30,7 @@ const PlayMap = (props) => {
           <GameMap mapView={mapView} />
           <AdventureMap checkPos={checkPos} mapView={mapView} />
           <DMTalk dMNumCode={dMNumCode} dMView={dMView} />
+         
         </h1>
       </div>
     </>
