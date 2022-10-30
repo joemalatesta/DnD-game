@@ -5,7 +5,7 @@ import D20 from '../../D20/D20'
 
 
 const DMTalk = (props) => {
-  console.log(props.dMNumCode);
+  // console.log(props.dMNumCode);
 
 
   const getRandomNumber = () =>{

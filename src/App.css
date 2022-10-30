@@ -69,3 +69,8 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.button {
+  color:crimson;
+  background-color: black;
+}

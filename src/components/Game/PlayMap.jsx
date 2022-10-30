@@ -10,7 +10,7 @@ const PlayMap = (props) => {
   const [dMNumCode,setDMNumCode] = useState()
 
   const checkPos = (num) => {
-    console.log(num);
+    // console.log(num);
     if(isNaN(num)){
       toggleDM(!dMView)
     } else {
@@ -18,7 +18,7 @@ const PlayMap = (props) => {
     }
     
   }
-  console.log(dMNumCode);
+  // console.log(dMNumCode);
   const toggleMap=()=>setMapView(!mapView)
   const toggleDM=()=>setDMView(!dMView)
     
