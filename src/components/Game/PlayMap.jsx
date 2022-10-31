@@ -13,7 +13,7 @@ const PlayMap = (props) => {
   const checkPos = (num) => {
     // console.log(num);
     if(isNaN(num)){
-      toggleDM(!dMView)
+      // toggleDM(!dMView)
     } else {
       setDMNumCode(num)
     }
@@ -39,7 +39,7 @@ const PlayMap = (props) => {
         <h1>
           <GameMap mapView={mapView} />
           <AdventureMap checkPos={checkPos} mapView={mapView} />
-          <DMTalk grabRoll={grabRoll} dMNumCode={dMNumCode} dMView={dMView} />
+          <DMTalk toggleDM={toggleDM} grabRoll={grabRoll} dMNumCode={dMNumCode} dMView={dMView} />
          
         </h1>
       </div>

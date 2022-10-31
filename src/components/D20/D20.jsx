@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import "./D20.css"
 
 
-const D20 = (props) => {
+const D20 = ({grabRoll, dieView}) => {
   const [face, setFace] = useState()
   const [button, setButton] = useState(true)
   const [roll,setRoll] = useState()
@@ -24,8 +24,8 @@ const D20 = (props) => {
   }, [face, initialSide, sides])
   
   useEffect(() => {
-    props.grabRoll(roll)
-  }, [roll]);
+    grabRoll(roll)
+  }, [grabRoll, roll]);
 
   const randomFace = () => {
     let face1 = Math.floor((Math.random() * sides)) + initialSide
@@ -58,7 +58,7 @@ const D20 = (props) => {
 
   return (
     
-      <form hidden={props.dieView ? true : false }>  
+      <form hidden={dieView ? true : false }>  
         <div className="content">
           <div id="die">
             <figure className="face face-1"></figure>

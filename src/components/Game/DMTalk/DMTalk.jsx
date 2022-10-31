@@ -17,19 +17,23 @@ const DMTalk = (props) => {
     if(isNaN(props.dMNumCode)) {
       return  texts[0].text
     }
-    if(props.dMNumCode === 3254 || getRandomNumber() > 45){
+    if(props.dMNumCode === 3254 || getRandomNumber() > 5){
       return(
-      <div  hidden={false}>
+      <div id='dm'  hidden={props.dMView? false : true }>
         {texts[1].text}        
         <D20 grabRoll={props.grabRoll}/>
+        <button onClick={()=>props.toggleDM()}>close</button>
       </div>)
     }  
   }
   
   return ( 
-      <>
+    <div className='app'>
+      <div id='dm'>
         {spoken()}
-      </>
+      </div>
+    </div>
+      
   )
 }
  

@@ -13,3 +13,10 @@
   color:antiquewhite;
   opacity: 50%;
 }
+#dm {
+  text-align: center;
+  margin: 15px;
+  width: 75%;
+  border:5px black solid;
+
+}
