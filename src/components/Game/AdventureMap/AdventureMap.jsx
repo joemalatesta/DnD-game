@@ -30,14 +30,10 @@ const AdventureMap = (props) => {
   const [y,setY] = useState(<div></div>)
   const [prevSpot, setPrevSpot] = useState()
   const [posColor, setPosColor] = useState()
-  const [currentSpot, setCurrentSpot] = useState()
+  const [currentSpot, setCurrentSpot] = useState(null)
   
-  let pos13 
+  let pos13 = 3252 //6009 //7881
   let char =<img src="/images/char.png" alt="logo" className="App-logo" style={{ width: "60px",height: "60px", display:'flex'}}/>
-
-  useEffect(() => {
-    pos13 = 3252 //6009 //7881
-  }, []);
 
   useEffect(() => {
     setPosColor(charSpot?.props?.style.backgroundColor)

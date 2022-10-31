@@ -3,7 +3,7 @@ import { mapDivs } from '../Map'
 
 
 const GameMap = (props) => {
-  console.log(mapDivs);
+  // console.log(mapDivs);
   let map = []
  
   for(let i = 0; i <10000; i++){
