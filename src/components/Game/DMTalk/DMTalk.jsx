@@ -1,6 +1,5 @@
 import './DMTalks.css'
 import texts from '../../../data/DmSpeaks/DmSpeaks'
-import { useState } from 'react';
 import D20 from '../../D20/D20'
 
 
@@ -18,7 +17,7 @@ const DMTalk = (props) => {
     if(isNaN(props.dMNumCode)) {
       return  texts[0].text
     }
-    if(props.dMNumCode === 3254 || getRandomNumber() > 90){
+    if(props.dMNumCode === 3254 || getRandomNumber() > 45){
       return(
       <div  hidden={false}>
         {texts[1].text}        
