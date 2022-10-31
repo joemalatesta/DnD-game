@@ -6,7 +6,11 @@ import "./D20.css"
 const D20 = (props) => {
   const [face, setFace] = useState()
   const [button, setButton] = useState(true)
+  const [roll,setRoll] = useState()
   const die = document.getElementById('die')
+
+
+
 
   let sides = 20
   let initialSide = 1
@@ -16,8 +20,13 @@ const D20 = (props) => {
  
   useEffect(() => {
     setFace(Math.floor((Math.random() * sides)) + initialSide)
+
   }, [face, initialSide, sides])
   
+  useEffect(() => {
+    props.grabRoll(roll)
+  }, [roll]);
+
   const randomFace = () => {
     let face1 = Math.floor((Math.random() * sides)) + initialSide
     lastFace = face1 === lastFace ? randomFace() : face1
@@ -27,12 +36,14 @@ const D20 = (props) => {
   const rollTo = (face) => {
     clearTimeout(timeoutId)
     die.setAttribute('data-face', face)
+    setRoll(face)
   }
 
   const handleRollDie = (evt) => {
     toggleRollButton()
     evt.preventDefault()  
     rollTo(randomFace())
+   
     clearTimeout(timeoutId)
     timeoutId = setTimeout(()=> {
       rollTo(randomFace())

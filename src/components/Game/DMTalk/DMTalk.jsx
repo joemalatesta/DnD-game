@@ -22,7 +22,7 @@ const DMTalk = (props) => {
       return(
       <div  hidden={false}>
         {texts[1].text}        
-        <D20 />
+        <D20 grabRoll={props.grabRoll}/>
       </div>)
     }  
   }
