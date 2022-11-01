@@ -18,8 +18,9 @@ const DMTalk = (props) => {
       return  texts[0].text
     }
     if(props.dMNumCode === 3254 || getRandomNumber() > 5){
+      // props.toggleDM()
       return(
-      <div id='dm'  hidden={props.dMView? false : true }>
+      <div hidden={props.dMView? false : true } >
         {texts[1].text}        
         <D20 grabRoll={props.grabRoll}/>
         <button onClick={()=>props.toggleDM()}>close</button>
@@ -28,8 +29,8 @@ const DMTalk = (props) => {
   }
   
   return ( 
-    <div className='app'>
-      <div id='dm'>
+    <div hidden={props.dMView? false : true } className='app'>
+      <div hidden={props.dMView? false : true } id='dm'>
         {spoken()}
       </div>
     </div>
