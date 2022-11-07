@@ -36,7 +36,6 @@ const AdventureMap = (props) => {
   let char =<img src="/images/char.png" alt="logo" className="App-logo" style={{ width: "60px",height: "60px", display:'flex'}}/>
 
   useEffect(() => {
-    setPosColor(charSpot?.props?.style.backgroundColor)
     handleCheckValidSpot()    
   }, [posColor, charSpot])
 
@@ -125,6 +124,7 @@ const AdventureMap = (props) => {
   } 
 
   const handleCheckValidSpot = () => {
+    setPosColor(charSpot?.props?.style.backgroundColor)
     if(posColor === 'blue' || posColor === 'brown'){
       setCurrentSpot(prevSpot)
       handleSetDivs(prevSpot)
