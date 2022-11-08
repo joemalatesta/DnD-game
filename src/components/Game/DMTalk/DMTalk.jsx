@@ -9,7 +9,7 @@ const DMTalk = (props) => {
 
   const getRandomNumber = () =>{
     let num = Math.floor(Math.random() * 100)
-    console.log(num);
+    // console.log(num);
     return num
   }
 
@@ -17,7 +17,7 @@ const DMTalk = (props) => {
     if(isNaN(props.dMNumCode)) {
       return  texts[0].text
     }
-    if(props.dMNumCode === 3254 || getRandomNumber() > 97){
+    if(props.dMNumCode === 3254 ){ //|| getRandomNumber() > 97
       // props.toggleDM()
       return(
       <div hidden={props.dMView? false : true } >

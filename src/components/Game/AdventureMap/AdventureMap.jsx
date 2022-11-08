@@ -133,7 +133,9 @@ const AdventureMap = (props) => {
     return
   }
   
-  // console.log('*************',currentSpot,'*************');
+  console.log('*************',currentSpot,'*************');
+  console.log('*************',posColor,'*************');
+  // console.log('*************',prevSpot,'*************');
 
   return ( 
     <>
