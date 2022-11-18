@@ -31,7 +31,6 @@ const AdventureMap = (props) => {
   const [prevSpot, setPrevSpot] = useState()
   const [posColor, setPosColor] = useState()
   const [currentSpot, setCurrentSpot] = useState(null)
-  const [keyboardReSet, setKeyboardReSet] = useState(true)
   
   let pos13 = 3252 //6009 //7881
   let char =<img src="/images/char.png" alt="logo" className="App-logo" style={{ width: "60px",height: "60px", display:'flex'}}/>
@@ -39,14 +38,6 @@ const AdventureMap = (props) => {
   useEffect(() => {
     handleCheckValidSpot()    
   }, [posColor, charSpot])
-
-  useEffect(() => {
-    document?.addEventListener('keydown', onKeyDown)
-    return ()=> {
-      document.removeEventListener('keydown', onKeyDown)
-    }
-    setKeyboardReSet(!keyboardReSet)
-  }, [keyboardReSet]);
 
   useEffect(() => {
     document?.addEventListener('keydown', onKeyDown)
